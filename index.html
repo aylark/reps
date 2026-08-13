@@ -1,63 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reps Workout Counter</title>
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <div class="app-shell">
-      <header class="topbar">
-        <div>
-          <p class="eyebrow">AI workout tracker</p>
-          <h1>Reps</h1>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>AI Workout Counter</title>
+
+  <link
+    rel="stylesheet"
+    href="./styles.css"
+  >
+
+</head>
+
+<body>
+
+  <div class="app-shell">
+
+    <header class="topbar">
+
+      <div>
+        <p class="eyebrow">
+          AI workout tracker
+        </p>
+
+        <h1>Reps</h1>
+      </div>
+
+      <div class="stat-card">
+
+        <span class="stat-label">
+          Reps
+        </span>
+
+        <strong id="rep-count">
+          0
+        </strong>
+
+      </div>
+
+    </header>
+
+
+    <main class="main-layout">
+
+
+      <!-- CONTROLS -->
+
+      <section class="panel controls-panel">
+
+        <label for="exercise-select">
+          Choose exercise
+        </label>
+
+        <select id="exercise-select">
+
+          <option value="squat">
+            Squat
+          </option>
+
+          <option value="jumpingJacks">
+            Jumping Jacks
+          </option>
+
+          <option value="sitUp">
+            Sit Up
+          </option>
+
+          <option value="lunge">
+            Lunge
+          </option>
+
+          <option value="toeTouch">
+            Toe Touch
+          </option>
+
+          <option value="highKnees">
+            High Knees
+          </option>
+
+        </select>
+
+
+        <div class="info-box">
+
+          <p class="info-title">
+            Current prediction
+          </p>
+
+          <p id="predicted-label">
+            Waiting...
+          </p>
+
         </div>
-        <div class="stat-card">
-          <span class="stat-label">Reps</span>
-          <strong id="rep-count">0</strong>
+
+
+        <div class="info-box">
+
+          <p class="info-title">
+            Confidence
+          </p>
+
+          <p id="confidence">
+            0%
+          </p>
+
         </div>
-      </header>
 
-      <main class="main-layout">
-        <section class="panel controls-panel">
-          <label for="exercise-select">Choose exercise</label>
-          <select id="exercise-select">
-            <option value="squat">Squat</option>
-            <option value="jumpingJacks">Jumping Jacks</option>
-            <option value="sitUp">Sit Up</option>
-            <option value="lunge">Lunge</option>
-            <option value="toeTouch">Toe Touch</option>
-            <option value="highKnees">High Knees</option>
-          </select>
 
-          <div class="info-box">
-            <p class="info-title">Current phase</p>
-            <p id="predicted-label">Waiting for model…</p>
-          </div>
+        <div class="info-box">
 
-          <div class="info-box">
-            <p class="info-title">Confidence</p>
-            <p id="confidence">0%</p>
-          </div>
+          <p class="info-title">
+            Status
+          </p>
 
-          <div class="info-box status-box">
-            <p class="info-title">Status</p>
-            <p id="status">Loading model…</p>
-          </div>
-        </section>
+          <p id="status">
+            Starting...
+          </p>
 
-        <section class="panel webcam-panel">
-          <video id="webcam" autoplay playsinline muted></video>
-          <div class="webcam-overlay">
-            <span id="phase-badge">Standby</span>
-          </div>
-        </section>
-      </main>
-    </div>
+        </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/image.min.js"></script>
-    <script src="./app.js"></script>
-  </body>
+      </section>
+
+
+      <!-- WEBCAM -->
+
+      <section class="panel webcam-panel">
+
+        <video
+          id="webcam"
+          autoplay
+          playsinline
+          muted
+        ></video>
+
+
+        <div class="webcam-overlay">
+
+          <span id="phase-badge">
+            Standby
+          </span>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+
+  <!-- TensorFlow.js -->
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js">
+  </script>
+
+
+  <!-- Teachable Machine -->
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8.5/dist/teachablemachine-image.min.js">
+  </script>
+
+
+  <!-- App -->
+
+  <script src="./app.js"></script>
+
+</body>
+
 </html>
